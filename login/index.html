@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+    <meta name="description" content="Tableau de Bord avancé pour Hotam, avec personnalisation, analytique et notifications en temps réel.">
+    
+    <link rel="icon" href="logo-top1.ico" type="image/x-icon">
+
+    <!-- Feuilles de style et bibliothèques -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Open Graph et SEO -->
+    <meta property="og:title" content="Tableau de Bord Premium - Hotam">
+    <meta property="og:description" content="Une solution avancée pour la gestion de chauffeurs et de courses.">
+    <meta property="og:image" content="src/xotaam-logo.ico">
+    <meta property="og:type" content="website">
+
+    <title>Connexion-Xotaam</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #333;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 400px;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 26px;
+            color: #6a11cb;
+            font-weight: bold;
+        }
+
+        .header p {
+            margin: 5px 0 20px;
+            color: #555;
+            font-size: 15px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #444;
+            font-size: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #444;
+        }
+
+        input[type=tel], input[type=password], select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            font-size: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type=tel]:focus, input[type=password]:focus, select:focus {
+            border-color: #6a11cb;
+            box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #6a11cb;
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2575fc;
+            transform: scale(1.05);
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const phoneInput = document.getElementById('login-phone');
+
+            phoneInput.addEventListener('focus', function() {
+                if (!phoneInput.value.startsWith('+221')) {
+                    phoneInput.value = '+221';
+                }
+            });
+
+            phoneInput.addEventListener('input', function() {
+                if (!phoneInput.value.startsWith('+221')) {
+                    phoneInput.value = '+221';
+                }
+            });
+
+            
+            
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Bienvenue</h1>
+            <p>Connectez-vous pour accéder à la plateforme</p>
+        </div>
+        <div class="form-container" id="login-form">
+            <h2>Identification</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="login-phone">Numéro de téléphone</label>
+                    <input type="tel" id="login-phone" required placeholder="Entrez votre numéro (+221)">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Mot de passe</label>
+                    <input type="password" id="login-password" required placeholder="Entrez votre mot de passe">
+                </div>
+                <div class="form-group">
+                    <label for="login-role">Rôle</label>
+                    <select id="login-role" required>
+                        <option value="">-- Sélectionnez un rôle --</option>
+                        <option value="client">Client</option>
+                        <option value="chauffeur">Chauffeur</option>
+                    </select>
+                </div>
+                <button type="submit" id="login-btn">Se connecter</button>
+            </form>
+        </div>
+		</br>
+		<div id="affiche" style="color:red"></div>
+	</div>
+	
+	<script type="module" src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+	<script type="module" src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js"></script>
+	<script type="module" src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js"></script>
+	<script type="module" src="https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js"></script>
+	<script src="auths.js" type="module"></script>
+	
+</body>
+</html>
